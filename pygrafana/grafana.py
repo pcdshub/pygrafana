@@ -37,8 +37,8 @@ def fetch_alert(alert_uid, grafana_server_url=grafana_server_url):
         headers=headers,
         verify=False
     )   
-    #return response.text
-    return response
+    return response.text
+    #return response
 
 def update_alert_rule(alert_uid, body, grafana_server_url=grafana_server_url):
     headers = { 

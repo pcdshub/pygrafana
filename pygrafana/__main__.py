@@ -9,16 +9,15 @@ fms_happi_database = "fms_test.json"
 
 def create_alert(value, title, folder_name, rule_group, polarity, pv, happi_name):
     ac = AlertCreater()
-    if polarity == None:
-        ac.create_alert(
-            value,
-            alert_title=title,
-            folder_name=folder_name,
-            rule_group=rule_group,
-            pv=pv,
-            happi_name=happi_name)
-    else:
-        ac.create_alert("A new alert test")
+
+    ac.create_alert(
+        value,
+        alert_title=title,
+        folder_name=folder_name,
+        rule_group=rule_group,
+        pv=pv,
+        happi_name=happi_name,
+        polarity=polarity)
 
 def delete_alert(alert_uid):
     delete_alert_rule(alert_uid)

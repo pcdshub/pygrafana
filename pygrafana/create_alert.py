@@ -7,7 +7,14 @@ import json
 fms_happi_database = "fms_test.json"
 
 folder_uid = dict(xrt="FRogdAwGz", mec="6Jha50QMz", test="ceeh3d2ene874d")
-rule_groups = dict(xrt_racks="XRT Racks", xrt_pcw="XRT_PCW", xrt_flood="XRT Water Leak Detection", mec_racks="MEC Racks", mec_flood="MEC Water Leak Detection", test="test")
+rule_groups = dict(xrt_racks="XRT Racks",
+        xrt_pcw="XRT_PCW",
+        xrt_flood="XRT Water Leak Detection",
+        mec_racks="MEC Racks",
+        mec_flood="MEC Water Leak Detection",
+        mec_laser="MEC Laser",
+        mec_general="MEC General",
+        mec_pcw="MEC PCW")
 
 class AlertCreater:
     def create_alert(self, value, *, alert_title=None, folder_name=None, rule_group=None, polarity="gt",pv=None, happi_name=None, client=None):
@@ -54,7 +61,7 @@ class AlertCreater:
             refId='B',
             conditions=[
                 dict(
-                    evaluator=Evaluator(params=[value, 0]),
+                    evaluator=Evaluator(params=[value, 0], type_=polarity),
                     operator=Operator(type_=""),
                     query=Query(params=["A"]),
                     reducer=Reducer()
